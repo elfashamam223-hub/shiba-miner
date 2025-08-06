@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SHIBA INU Mining</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background-color: #121212;
+      color: white;
+      padding: 20px;
+    }
+    .logo {
+      width: 100px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      background-color: #ff6b00;
+      color: white;
+      cursor: pointer;
+    }
+    input {
+      padding: 10px;
+      margin: 5px;
+      width: 80%;
+      border-radius: 8px;
+      border: none;
+    }
+    .section {
+      margin: 20px 0;
+      padding: 15px;
+      border: 1px solid #444;
+      border-radius: 10px;
+      background-color: #1e1e1e;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="https://cryptologos.cc/logos/shiba-inu-shib-logo.png" class="logo" alt="SHIB Logo">
+  <h1>SHIBA INU Cloud Mining</h1>
+
+  <!-- WATCH ADS SECTION -->
+  <div class="section">
+    <h2>🎥 Watch Ads to Earn</h2>
+    <p>Watch an ad for 15 seconds and earn <b>7 SHIB</b></p>
+    <button onclick="startAd()">▶️ Watch Ad</button>
+    <div id="adTimer"></div>
+  </div>
+
+  <!-- WITHDRAW SECTION -->
+  <div class="section">
+    <h2>💸 Withdraw SHIB</h2>
+    <form onsubmit="submitWithdraw(event)">
+      <input type="email" id="email" placeholder="Binance Email" required><br>
+      <input type="text" id="username" placeholder="Telegram Username" required><br>
+      <input type="number" id="amount" placeholder="Amount in SHIB" required><br>
+      <button type="submit">Submit Withdraw</button>
+    </form>
+    <div id="withdrawMsg"></div>
+  </div>
+
+  <!-- TOP 10 EARNERS -->
+  <div class="section">
+    <h2>🏆 Top 10 Earners</h2>
+    <ul id="topEarners"></ul>
+  </div>
+
+  <!-- LATEST WITHDRAWS -->
+  <div class="section">
+    <h2>📤 Latest 5 Withdraws</h2>
+    <ul id="latestWithdraws"></ul>
+  </div>
+
+  <script>
+    // Fitur Watch Ad
+    function startAd() {
+      const timer = document.getElementById("adTimer");
+      let seconds = 15;
+      timer.innerHTML = `⏳ Watching ad... ${seconds}s`;
+      const interval = setInterval(() => {
+        seconds--;
+        timer.innerHTML = `⏳ Watching ad... ${seconds}s`;
+        if (seconds === 0) {
+          clearInterval(interval);
+          timer.innerHTML = "✅ You've earned 7 SHIB!";
+          // TODO: Panggil backend untuk tambah saldo
+        }
+      }, 1000);
+    }
+
+    // Fitur Withdraw
+    function submitWithdraw(event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value;
+      const username = document.getElementById("username").value;
+      const amou
